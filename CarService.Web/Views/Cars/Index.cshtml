@@ -1,0 +1,36 @@
+﻿@model CarService.Web.Models.Car[]
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+    <link rel="stylesheet" href="https://unpkg.com/@@picocss/pico@@latest/css/pico.classless.min.css">
+</head>
+<body>
+    <header>
+        <h1>My Cars</h1>
+    </header>
+    <main>
+        <section>
+
+            <ol >
+                @foreach (var item in Model)
+                {
+                    <li >
+                        <p>
+                            <strong>
+                                @item.Brand @item.Model
+                            </strong>
+                        </p>
+                    </li>
+                }
+            </ol>
+        </section>
+        <section>
+            <button type="button" >Add car</button>
+        </section>
+    </main>
+
+</body>
+</html>
