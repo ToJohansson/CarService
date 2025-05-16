@@ -1,0 +1,52 @@
+﻿@model CarService.Web.Models.Car
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<!DOCTYPE html>
+<html data-theme="dark">
+<head>
+    <title>Details</title>
+    <link rel="stylesheet" href="https://unpkg.com/@@picocss/pico@@latest/css/pico.classless.min.css">
+</head>
+<body>
+    <header>
+        <h1>Details</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Car information</h2>
+
+            <ul>
+                <li>
+                    <p>@Model.Brand</p>
+                    <p>@Model.Model</p>
+                    <p>@Model.Year</p>
+                    <p>@Model.EngineType</p>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+
+            <h2>Service interval information</h2>
+            <ol>
+                @foreach (var item in Model.ServiceItems)
+                {
+                    <li>
+                        <p><strong>@Html.DisplayFor(modelItem => item.Name)</strong> </p>
+                        <p><strong>Description: </strong>@Html.DisplayFor(modelItem => item.Description)</p>
+                        <p><strong>Last service: </strong>@Html.DisplayFor(modelItem => item.LastService)</p>
+                        <div>
+                            <p><strong>Change every: </strong>@Html.DisplayFor(modelItem => item.KmInterval) or
+                            @Html.DisplayFor(modelItem => item.TimeIntervalYears) years.</p>
+                        </div>
+                    </li>
+                }
+            </ol>
+
+        </section>
+        <section>
+            <a href='@Url.Action("Add", "Cars")'>Add car</a>
+        </section>
+    </main>
+
+</body>
+</html>
