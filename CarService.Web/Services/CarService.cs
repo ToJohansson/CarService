@@ -2,7 +2,7 @@
 
 namespace CarService.Web.Services;
 
-public class CarService
+public class CarService : ICarService
 
 {
     List<Car> cars = new List<Car>();
@@ -81,4 +81,25 @@ public class CarService
         cars.Add(car);
 
     }
+
+    public bool AddCar(Car car)
+    {
+        throw new NotImplementedException();
+    }
+
+    public bool DeleteById(int id)
+    {
+        throw new NotImplementedException();
+    }
+
+    public List<Car> GetAll()
+    {
+        throw new NotImplementedException();
+    }
+
+    public Car GetById(int id)
+    {
+        throw new NotImplementedException();
+    }
 }
+
