@@ -2,7 +2,7 @@
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
 <!DOCTYPE html>
-<html>
+<html data-theme="dark">
 <head>
     <title>Home</title>
     <link rel="stylesheet" href="https://unpkg.com/@@picocss/pico@@latest/css/pico.classless.min.css">
@@ -14,13 +14,19 @@
     <main>
         <section>
 
-            <ol >
+            <ol>
                 @foreach (var item in Model)
                 {
-                    <li >
+                    <li>
                         <p>
                             <strong>
                                 @item.Brand @item.Model
+                                <a asp-controller="Cars"
+                                   asp-action="Details"
+                                   asp-route-id=@item.Id>
+                                    Details
+                                </a>
+
                             </strong>
                         </p>
                     </li>
@@ -28,7 +34,7 @@
             </ol>
         </section>
         <section>
-            <button type="button" >Add car</button>
+            <a href='@Url.Action("Add", "Cars")'>Add car</a>
         </section>
     </main>
 

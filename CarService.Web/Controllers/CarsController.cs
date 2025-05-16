@@ -22,6 +22,15 @@ public class CarsController : Controller
         if (!ModelState.IsValid)
             return View(car);
 
+        if (!service.AddCar(car))
+            return View(car);
+
         return RedirectToAction(nameof(Index));
     }
+    [HttpGet("details/{id:int}")]
+    public IActionResult Details(int id)
+    {
+        return View(service.GetCarById(id));
+    }
+
 }
