@@ -14,5 +14,9 @@ public interface ICarService
     // Delete Car By ID
     bool DeleteById(int id);
 
-
+    // Service Items 
+    bool AddServiceItem(int carId, ServiceItem item);
+    bool RemoveServiceItem(int carId, int serviceItemId);
+    ServiceItem? GetServiceItemById(int carId, int serviceItemId);
+    bool UpdateLastServiceDate(int carId, int serviceItemId, DateTime newDate);
 }

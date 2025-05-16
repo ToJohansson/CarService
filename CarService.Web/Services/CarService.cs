@@ -9,7 +9,7 @@ public class CarService : ICarService
 
     public CarService()
     {
-        Car car = new Car { Id = 1234, Brand = "Citroen", Model = "C3 Picasso", Engine = "Petrol", Year = 2009 };
+        Car car = new Car { Id = 1234, Brand = "Citroen", Model = "C3 Picasso", EngineType = "Petrol", Year = 2009 };
 
         car.ServiceItems = new List<ServiceItem>
 {
@@ -87,6 +87,11 @@ public class CarService : ICarService
         throw new NotImplementedException();
     }
 
+    public bool AddServiceItem(int carId, ServiceItem item)
+    {
+        throw new NotImplementedException();
+    }
+
     public bool DeleteById(int id)
     {
         throw new NotImplementedException();
@@ -98,6 +103,21 @@ public class CarService : ICarService
     }
 
     public Car GetById(int id)
+    {
+        throw new NotImplementedException();
+    }
+
+    public ServiceItem? GetServiceItemById(int carId, int serviceItemId)
+    {
+        throw new NotImplementedException();
+    }
+
+    public bool RemoveServiceItem(int carId, int serviceItemId)
+    {
+        throw new NotImplementedException();
+    }
+
+    public bool UpdateLastServiceDate(int carId, int serviceItemId, DateTime newDate)
     {
         throw new NotImplementedException();
     }

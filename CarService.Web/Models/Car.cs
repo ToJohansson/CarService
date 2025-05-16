@@ -6,7 +6,7 @@ public class Car
     public string Brand { get; set; }
     public string Model { get; set; }
     public int Year { get; set; }
-    public string Engine { get; set; }
+    public string EngineType { get; set; }
 
     public List<ServiceItem> ServiceItems { get; set; } = new();
 }
