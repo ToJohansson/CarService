@@ -7,12 +7,12 @@ public interface ICarService
     // Add new car
     bool AddCar(Car car);
     // List all cars
-    List<Car> GetAll();
+    Car[] GetAllCars();
     // Get car by ID
-    Car GetById(int id);
+    Car? GetCarById(int id);
 
     // Delete Car By ID
-    bool DeleteById(int id);
+    bool DeleteCarById(int id);
 
     // Service Items 
     bool AddServiceItem(int carId, ServiceItem item);

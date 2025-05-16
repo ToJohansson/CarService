@@ -2,12 +2,11 @@
 
 namespace CarService.Web.Services;
 
-public class CarService : ICarService
+public class CarServices : ICarService
 
 {
     List<Car> cars = new List<Car>();
-
-    public CarService()
+    public CarServices()
     {
         Car car = new Car { Id = 1234, Brand = "Citroen", Model = "C3 Picasso", EngineType = "Petrol", Year = 2009 };
 
@@ -84,42 +83,87 @@ public class CarService : ICarService
 
     public bool AddCar(Car car)
     {
-        throw new NotImplementedException();
+        int newId = 0;
+        if (cars.Count == 0)
+            newId = 1;
+        else
+            newId = cars.Max(car => car.Id);
+
+        if ((GetCarById != null))
+            return false;
+
+        car.Id = newId;
+        cars.Add(car);
+        return true;
     }
 
     public bool AddServiceItem(int carId, ServiceItem item)
     {
-        throw new NotImplementedException();
+
+        int newId = 0;
+        var car = GetCarById(carId);
+        if (car == null)
+            return false;
+
+        if (car.ServiceItems.Count == 0)
+            newId = 1;
+        else
+            newId = car.ServiceItems.Max(s => s.Id);
+
+        item.Id = newId;
+        car.ServiceItems.Add(item);
+        return true;
     }
 
-    public bool DeleteById(int id)
+    public bool DeleteCarById(int id)
     {
-        throw new NotImplementedException();
+        var carToDelete = GetCarById(id);
+        if (carToDelete == null)
+            return false;
+
+        cars.Remove(carToDelete);
+        return true;
     }
 
-    public List<Car> GetAll()
-    {
-        throw new NotImplementedException();
-    }
+    public Car[] GetAllCars() => cars.OrderBy(c => c.Brand).ToArray();
 
-    public Car GetById(int id)
+
+    public Car? GetCarById(int id)
     {
-        throw new NotImplementedException();
+        return cars.SingleOrDefault(c => c.Id == id);
     }
 
     public ServiceItem? GetServiceItemById(int carId, int serviceItemId)
     {
-        throw new NotImplementedException();
+        var car = GetCarById(carId);
+        if (car == null)
+            throw new Exception("could not find car");
+
+        return car.ServiceItems.SingleOrDefault(s => s.Id == serviceItemId);
     }
 
     public bool RemoveServiceItem(int carId, int serviceItemId)
     {
-        throw new NotImplementedException();
+        var car = GetCarById(carId);
+        if (car == null)
+            return false;
+
+        var item = car.ServiceItems.SingleOrDefault(s => s.Id == serviceItemId);
+        if (item == null)
+            return false;
+
+        return car.ServiceItems.Remove(item);
     }
+
 
     public bool UpdateLastServiceDate(int carId, int serviceItemId, DateTime newDate)
     {
-        throw new NotImplementedException();
+        var item = GetServiceItemById(carId, serviceItemId);
+        if (item == null)
+            return false;
+
+        item.LastService = newDate;
+        return true;
     }
 }
 
