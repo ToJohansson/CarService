@@ -1,42 +1,34 @@
-﻿@model CarService.Web.Models.Car[]
-@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+﻿@model Car[]
+@{
+    ViewBag.Title = "Home";
+}
 
-<!DOCTYPE html>
-<html data-theme="dark">
-<head>
-    <title>Home</title>
-    <link rel="stylesheet" href="https://unpkg.com/@@picocss/pico@@latest/css/pico.classless.min.css">
-</head>
-<body>
-    <header>
-        <h1>My Cars</h1>
-    </header>
-    <main>
-        <section>
+<header>
+    <h1>My Cars</h1>
+</header>
+<main>
+    <section>
 
-            <ol>
-                @foreach (var item in Model)
-                {
-                    <li>
-                        <p>
-                            <strong>
-                                @item.Brand @item.Model
-                                <a asp-controller="Cars"
-                                   asp-action="Details"
-                                   asp-route-id=@item.Id>
-                                    Details
-                                </a>
+        <ol>
+            @foreach (var item in Model)
+            {
+                <li>
+                    <p>
+                        <strong>
+                            @item.Brand @item.Model
+                            <a asp-controller="Cars"
+                               asp-action="Details"
+                               asp-route-id=@item.Id>
+                                Details
+                            </a>
 
-                            </strong>
-                        </p>
-                    </li>
-                }
-            </ol>
-        </section>
-        <section>
-            <a href='@Url.Action("Add", "Cars")'>Add car</a>
-        </section>
-    </main>
+                        </strong>
+                    </p>
+                </li>
+            }
+        </ol>
+    </section>
+    <section>
+        <a href='@Url.Action("Add", "Cars")'>Add car</a>
+    </section>
 
-</body>
-</html>
