@@ -23,7 +23,7 @@ public class CarsController : Controller
             return View(car);
 
         if (!service.AddCar(car))
-            return View(car);
+            return View(car); // returnera popup som säger om det var bu eller bä
 
         return RedirectToAction(nameof(Index));
     }
@@ -31,6 +31,24 @@ public class CarsController : Controller
     public IActionResult Details(int id)
     {
         return View(service.GetCarById(id));
+    }
+    [HttpGet("additem/{id:int}")]
+    public IActionResult AddItem(int id)
+    {
+        ViewBag.CarId = id;
+        return View();
+    }
+
+    [HttpPost("additem/{id:int}")]
+    public IActionResult AddItem(int id, ServiceItem item)
+    {
+        if (!ModelState.IsValid)
+            return View(item);
+
+        if (!service.AddServiceItem(id, item))
+            return View(item); // returnera popup som säger om det var bu eller bä
+
+        return RedirectToAction(nameof(Index));
     }
 
 }

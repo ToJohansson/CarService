@@ -1,0 +1,49 @@
+﻿@model CarService.Web.Models.ServiceItem
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>add item</title>
+</head>
+<body>
+    <header>
+        <h1>Add a new service item to your car</h1>
+    </header>
+    <main>
+        <section>
+            <form asp-controller="Cars" asp-action="AddItem" >
+                <label asp-for="Name"></label>
+                <input asp-for="Name" />
+                <span asp-validation-for="Name"></span>
+
+                <label asp-for="Description"></label>
+                <input asp-for="Description" />
+                <span asp-validation-for="Description"></span>
+
+                <label asp-for="KmInterval"></label>
+                <input asp-for="KmInterval" />
+                <span asp-validation-for="KmInterval"></span>
+
+                <label asp-for="TimeIntervalYears"></label>
+                <input asp-for="TimeIntervalYears" />
+                <span asp-validation-for="TimeIntervalYears"></span>
+
+                <label asp-for="LastService"></label>
+                <input asp-for="LastService" />
+                <span asp-validation-for="LastService"></span>
+
+                <button type="submit">Add service item</button>
+            </form>
+        </section>
+        <section>
+            <a asp-controller="Cars"
+               asp-action="Details"
+               asp-route-id=@ViewBag.CarId>
+                back to car details
+            </a>
+        </section>
+    </main>
+</body>
+</html>
+

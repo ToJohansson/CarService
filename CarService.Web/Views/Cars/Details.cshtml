@@ -27,6 +27,11 @@
         <section>
 
             <h2>Service interval information</h2>
+            <a asp-controller="Cars"
+               asp-action="AddItem"
+               asp-route-id=@Model.Id>
+                Add new service item
+            </a>
             <ol>
                 @foreach (var item in Model.ServiceItems)
                 {
