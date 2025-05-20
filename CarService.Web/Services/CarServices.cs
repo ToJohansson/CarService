@@ -8,7 +8,7 @@ public class CarServices : ICarService
     List<Car> cars = new List<Car>();
     public CarServices()
     {
-        Car car = new Car { Id = 1234, Brand = "Citroen", Model = "C3 Picasso", EngineType = "Petrol", Year = 2009 };
+        Car car = new Car { Id = 1234, Brand = "Citroen", Model = "C3 Picasso", EngineType = "Petrol", Year = 2009, TripMeter = 15750 };
 
         car.ServiceItems = new List<ServiceItem>
 {
@@ -18,7 +18,7 @@ public class CarServices : ICarService
         Name = "Engine Oil",
         Description = "Oil change with 5W-30 or 5W-40. Capacity ~4.3L.",
         KmInterval = 10000,
-        TimeIntervalYears = 1,
+        TimeIntervalMonths = 12,
         LastService = new DateTime(2024, 6, 1)
     },
     new ServiceItem
@@ -27,7 +27,7 @@ public class CarServices : ICarService
         Name = "Air Filter",
         Description = "Check earlier if driving in dusty conditions.",
         KmInterval = 20000,
-        TimeIntervalYears = null,
+        TimeIntervalMonths = 24,
         LastService = new DateTime(2024, 6, 1)
     },
     new ServiceItem
@@ -36,7 +36,7 @@ public class CarServices : ICarService
         Name = "Fuel Filter",
         Description = "Fuel filter in engine bay.",
         KmInterval = 60000,
-        TimeIntervalYears = null,
+        TimeIntervalMonths = 12,
         LastService = new DateTime(2024, 6, 1)
     },
     new ServiceItem
@@ -45,7 +45,7 @@ public class CarServices : ICarService
         Name = "Fuel Tank Filter",
         Description = "Fuel filter in tank – less frequent replacement.",
         KmInterval = 100000,
-        TimeIntervalYears = null,
+        TimeIntervalMonths = 18,
         LastService = new DateTime(2024, 6, 1)
     },
     new ServiceItem
@@ -54,7 +54,7 @@ public class CarServices : ICarService
         Name = "Timing Chain",
         Description = "No official interval. Check condition after 60,000 km.",
         KmInterval = 60000,
-        TimeIntervalYears = null,
+        TimeIntervalMonths = 18,
         LastService = new DateTime(2024, 6, 1)
     },
     new ServiceItem
@@ -63,7 +63,7 @@ public class CarServices : ICarService
         Name = "Serpentine Belt",
         Description = "Drive/alternator belt replacement.",
         KmInterval = 60000,
-        TimeIntervalYears = null,
+        TimeIntervalMonths = 12,
         LastService = new DateTime(2024, 6, 1)
     },
     new ServiceItem
@@ -72,13 +72,11 @@ public class CarServices : ICarService
         Name = "Engine Coolant",
         Description = "Coolant replacement. Capacity 6L.",
         KmInterval = 100000,
-        TimeIntervalYears = 5,
+        TimeIntervalMonths = 72,
         LastService = new DateTime(2024, 6, 1)
     }
 };
-
         cars.Add(car);
-
     }
 
     public bool AddCar(Car car)

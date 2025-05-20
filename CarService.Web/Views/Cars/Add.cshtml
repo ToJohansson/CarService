@@ -1,4 +1,4 @@
-﻿@model Car
+﻿@model AddVM
 @{
     ViewBag.Title = "Add Car";
 }
@@ -20,6 +20,10 @@
     <label asp-for="EngineType"></label>
     <input asp-for="EngineType" />
     <span asp-validation-for="EngineType"></span>
+
+    <label asp-for="TripMeter"></label>
+    <input asp-for="TripMeter" />
+    <span asp-validation-for="TripMeter"></span>
     <div>
         <button type="submit">submit</button>
     </div>

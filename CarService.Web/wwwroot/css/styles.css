@@ -1,0 +1,83 @@
+﻿
+/* Global */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* Container som håller allt */
+.container {
+    max-width: 960px;
+    margin: 20px auto;
+    padding: 0 15px;
+}
+
+/* Header */
+header {
+    background-color: #0078d7;
+    color: white;
+    padding: 20px 15px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+    header h1 {
+        margin: 0;
+        font-weight: 600;
+    }
+
+    /* Navigation-länkar i header */
+    header section a {
+        color: #cce4f7;
+        text-decoration: none;
+        margin-right: 15px;
+        font-weight: 500;
+    }
+
+        header section a:hover {
+            text-decoration: underline;
+        }
+
+/* Main och sektioner */
+main {
+    background-color: white;
+    padding: 20px 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+section {
+    margin-bottom: 25px;
+}
+
+    section h2 {
+        border-bottom: 2px solid #0078d7;
+        padding-bottom: 5px;
+        margin-bottom: 15px;
+        color: #0078d7;
+    }
+
+/* Listor */
+ul, ol {
+    padding-left: 20px;
+}
+
+li {
+    margin-bottom: 15px;
+}
+
+/* Styling på länkar */
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Lite mjuka övergångar för hover-effekter */
+a, li {
+    transition: color 0.3s ease;
+}

@@ -1,9 +1,13 @@
 ﻿<!DOCTYPE html>
 
-<html data-theme="dark">
+<html >
 <head>
     <meta name="viewport" content="width=device-width" />
-    <link rel="stylesheet" href="https://unpkg.com/@@picocss/pico@@latest/css/pico.classless.min.css">
+    @* <link rel="stylesheet" href="https://unpkg.com/@@picocss/pico@@latest/css/pico.classless.min.css"> *@
+    <link rel="stylesheet" href="~/css/styles.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-9ndCyUa6YF0h1eX9ft0EL6APZ4t6eQDhYPR0m6kMvE5y/jigP4FEM5BDd8dKzB1y" crossorigin="anonymous">
+
 
     <title>@ViewBag.Title</title>
 </head>
@@ -11,6 +15,8 @@
     <div>
         @RenderBody()
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ENjdO4Dr2bkBIFxQpeoPz9nD67z+vH97b6NTFl+OqANz4t2GZCCTfA2bQkbiG7ni" crossorigin="anonymous"></script>
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.7.1.min.js" asp-fallback-src="/scripts/lib/jquery/jquery.min.js"></script>
     @RenderSection("scripts", false)
 </body>
