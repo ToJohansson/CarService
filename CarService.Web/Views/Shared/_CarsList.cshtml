@@ -1,0 +1,18 @@
+﻿<ol>
+    @foreach (var item in Model)
+    {
+        <li>
+            <p>
+                <strong>
+                    @item.Brand @item.Model
+                    <a asp-controller="Cars"
+                       asp-action="Details"
+                       asp-route-id=@item.Id>
+                        Details
+                    </a>
+
+                </strong>
+            </p>
+        </li>
+    }
+</ol>
