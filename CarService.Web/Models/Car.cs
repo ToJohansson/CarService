@@ -24,4 +24,6 @@ public class Car
 
     [Display(Name = "Service History")]
     public List<ServiceItem> ServiceItems { get; set; } = new();
+
+    // ADD THE CARS TRIPMETER
 }

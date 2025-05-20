@@ -87,7 +87,7 @@ public class CarServices : ICarService
         if (cars.Count == 0)
             newId = 1;
         else
-            newId = cars.Max(car => car.Id) +1 ;
+            newId = cars.Max(car => car.Id) + 1;
 
         if ((GetCarById(newId) != null))
             return false;
@@ -108,7 +108,7 @@ public class CarServices : ICarService
         if (car.ServiceItems.Count == 0)
             newId = 1;
         else
-            newId = car.ServiceItems.Max(s => s.Id);
+            newId = car.ServiceItems.Max(s => s.Id) + 1;
 
         item.Id = newId;
         car.ServiceItems.Add(item);

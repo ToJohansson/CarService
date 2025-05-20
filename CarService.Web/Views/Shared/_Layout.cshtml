@@ -1,0 +1,17 @@
+﻿<!DOCTYPE html>
+
+<html data-theme="dark">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="https://unpkg.com/@@picocss/pico@@latest/css/pico.classless.min.css">
+
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div>
+        @RenderBody()
+    </div>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.7.1.min.js" asp-fallback-src="/scripts/lib/jquery/jquery.min.js"></script>
+    @RenderSection("scripts", false)
+</body>
+</html>
