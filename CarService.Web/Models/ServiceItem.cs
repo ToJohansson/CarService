@@ -24,4 +24,6 @@ public class ServiceItem
     [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
     public DateTime LastService { get; set; }
 
+    // ADD TRIPMETER WHEN LAST SERVICE IS MADE 
+
 }

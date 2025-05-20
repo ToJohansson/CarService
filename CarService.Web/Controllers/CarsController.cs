@@ -48,7 +48,7 @@ public class CarsController : Controller
         if (!service.AddServiceItem(id, item))
             return View(item); // returnera popup som säger om det var bu eller bä
 
-        return RedirectToAction(nameof(Index));
+        return RedirectToAction(nameof(Details), new { id = id });
     }
 
 }
