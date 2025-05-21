@@ -4,7 +4,7 @@
 }
 
 <h1>Add a new service item to your car</h1>
-<form asp-controller="Cars" asp-action="AddItem">
+@* <form asp-controller="Cars" asp-action="AddItem">
     <label asp-for="Name"></label>
     <input asp-for="Name" />
     <span asp-validation-for="Name"></span>
@@ -26,8 +26,42 @@
     <span asp-validation-for="LastService"></span>
 
     <button type="submit">Add service item</button>
+</form> *@
+<form asp-controller="Cars" asp-action="AddItem" class="needs-validation" novalidate>
+    <div class="mb-3">
+        <label asp-for="Name" class="form-label"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Description" class="form-label"></label>
+        <input asp-for="Description" class="form-control" />
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="KmInterval" class="form-label"></label>
+        <input asp-for="KmInterval" type="number" class="form-control" />
+        <span asp-validation-for="KmInterval" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="TimeIntervalMonths" class="form-label"></label>
+        <input asp-for="TimeIntervalMonths" type="number" class="form-control" />
+        <span asp-validation-for="TimeIntervalMonths" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="LastService" class="form-label"></label>
+        <input asp-for="LastService" type="date" class="form-control" />
+        <span asp-validation-for="LastService" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add service item</button>
 </form>
-<a asp-controller="Cars"
+
+<a class="btn btn-warning mt-3" asp-controller="Cars"
    asp-action="Details"
    asp-route-id=@ViewBag.CarId>
     back to car details

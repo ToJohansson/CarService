@@ -74,6 +74,19 @@ header {
             text-decoration: none;
         }
 
+.nav-link {
+    color: white !important; /* tvingar färgen, Bootstrap använder egna färger */
+    text-decoration: none;
+    margin-right: 15px;
+    font-weight: 500;
+}
+
+    .nav-link:hover {
+        background-color: #004578;
+        text-decoration: none;
+        color: white !important; /* se till att texten förblir vit på hover */
+    }
+
 /* Main och sektioner */
 main {
     background-color: white;
