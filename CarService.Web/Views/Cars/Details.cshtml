@@ -28,15 +28,16 @@
 
 <header>
     <h1>Details</h1>
-    <section>
+    <nav class="header-nav">
         <a href='@Url.Action("Index", "Cars")'>Home</a>
-    </section>
-    <a asp-controller="Cars"
-       asp-action="AddItem"
-       asp-route-id=@Model.Id>
-        Add new service item
-    </a>
+        <a asp-controller="Cars"
+           asp-action="AddItem"
+           asp-route-id="@Model.Id">
+            Add new service item
+        </a>
+    </nav>
 </header>
+
 <main>
     <section class="my-4">
         <h2 class="mb-3">Car Information</h2>
