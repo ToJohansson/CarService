@@ -5,9 +5,9 @@ using CarService.Web.Views.Cars;
 using static CarService.Web.Views.Cars.DetailsVM;
 
 namespace CarService.Web.Controllers;
-public class CarsController : Controller
+public class CarsController(CarServices service) : Controller
 {
-    public static CarServices service = new CarServices();
+
     [HttpGet("")]
     public IActionResult Index()
     {
