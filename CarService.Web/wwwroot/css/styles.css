@@ -7,13 +7,24 @@ body {
     margin: 0;
     padding: 0;
     line-height: 1.6;
+    display: flex;
+    justify-content: center; /* centrera horisontellt */
+    align-items: flex-start; /* starta från toppen (inte mitt i höjden) */
+    min-height: 100vh; /* gör så body fyller hela höjden */
+    padding: 40px 20px; /* marginal runt hela */
+    box-sizing: border-box;
 }
 
-/* Container som håller allt */
-.container {
-    max-width: 960px;
-    margin: 20px auto;
-    padding: 0 15px;
+
+.paper-container {
+    background-color: white;
+    width: 100%;
+    max-width: 900px; /* maxbredd men kan krympa */
+    min-height: 80vh; /* så det känns som en sida */
+    padding: 40px 50px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    box-sizing: border-box;
 }
 
 /* Header */
@@ -33,7 +44,7 @@ header {
 
     /* Navigation-länkar i header */
     header section a {
-        color: #cce4f7;
+        color: white;
         text-decoration: none;
         margin-right: 15px;
         font-weight: 500;

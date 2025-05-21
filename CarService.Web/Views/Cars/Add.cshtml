@@ -5,30 +5,44 @@
 
 <h1>Add Car</h1>
 <form asp-controller="" asp-action="">
-    <label asp-for="Brand"></label>
-    <input asp-for="Brand" />
-    <span asp-validation-for="Brand"></span>
+    <div class="mb-3">
+        <label class="form-label" asp-for="Brand"></label>
+        <input class="form-control" asp-for="Brand" />
+        <span class="text-danger" asp-validation-for="Brand"></span>
+    </div>
 
-    <label asp-for="Model"></label>
-    <input asp-for="Model" />
-    <span asp-validation-for="Model"></span>
+    <div class="mb-3">
+        <label class="form-label" asp-for="Model"></label>
+        <input class="form-control" asp-for="Model" />
+        <span class="text-danger" asp-validation-for="Model"></span>
+    </div>
 
-    <label asp-for="Year"></label>
-    <input asp-for="Year" />
-    <span asp-validation-for="Year"></span>
+    <div class="mb-3">
+        <label class="form-label" asp-for="Year"></label>
+        <input class="form-control" asp-for="Year" />
+        <span class="text-danger" asp-validation-for="Year"></span>
+    </div>
 
-    <label asp-for="EngineType"></label>
-    <input asp-for="EngineType" />
-    <span asp-validation-for="EngineType"></span>
+    <div class="mb-3">
+        <label class="form-label" asp-for="EngineType"></label>
+        <input class="form-control" asp-for="EngineType" />
+        <span class="text-danger" asp-validation-for="EngineType"></span>
+    </div>
 
-    <label asp-for="TripMeter"></label>
-    <input asp-for="TripMeter" />
-    <span asp-validation-for="TripMeter"></span>
-    <div>
-        <button type="submit">submit</button>
+    <div class="mb-3">
+        <label class="form-label" asp-for="TripMeter"></label>
+        <input class="form-control" asp-for="TripMeter" />
+        <span class="text-danger" asp-validation-for="TripMeter"></span>
+    </div>
+
+    <div class="d-grid mt-4">
+        <button class="btn btn-primary btn-lg" type="submit">Submit</button>
     </div>
 </form>
-<a href="/">Back</a>
+
+<section class="mt-3">
+    <a class="btn btn-warning" href="/">Back</a>
+</section>
 @section scripts
 {
 @* NOTE: Invalid ajax.aspnetcdn.com URLs to test the fallback *@
