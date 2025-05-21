@@ -57,21 +57,11 @@
                         </ul>
                     </li>
                 </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                    <button class="btn btn-success" type="submit">Search</button>
-                </form>
+           
             </div>
         </div>
     </nav>
-@*     <nav class="header-nav">
-        <a class="nav-link active"  href='@Url.Action("Index", "Cars")'>Home</a>
-        <a asp-controller="Cars"
-           asp-action="AddItem"
-           asp-route-id="@Model.Id">
-            Add new service item
-        </a>
-    </nav> *@
+
 </header>
 
 <main>
@@ -93,7 +83,7 @@
                     <dd class="col-sm-9">@Model.EngineType</dd>
 
                     <dt class="col-sm-3">Trip Meter</dt>
-                    <dd class="col-sm-9">@Model.TripMeter</dd>
+                    <dd class="col-sm-9">@Model.TripMeter km</dd>
                 </dl>
             </div>
         </div>
@@ -137,7 +127,7 @@
                         <div class="accordion-body">
                             <p><strong>Description:</strong> @item.Description</p>
                             <p><strong>Last service:</strong> @item.LastService.ToShortDateString()</p>
-                            <p><strong>Trip meter last service:</strong> @item.TripMeterWhenService</p>
+                            <p><strong>Trip meter last service:</strong> @item.TripMeterWhenService km</p>
                             <p><strong>Change every:</strong> @item.KmInterval km or @item.TimeIntervalMonths months.</p>
                         </div>
                     </div>

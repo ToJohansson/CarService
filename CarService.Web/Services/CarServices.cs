@@ -19,7 +19,8 @@ public class CarServices : ICarService
         Description = "Oil change with 5W-30 or 5W-40. Capacity ~4.3L.",
         KmInterval = 10000,
         TimeIntervalMonths = 12,
-        LastService = new DateTime(2024, 6, 1)
+        LastService = new DateTime(2024, 6, 1),
+        TripMeterWhenService = 15750
     },
     new ServiceItem
     {
@@ -28,7 +29,9 @@ public class CarServices : ICarService
         Description = "Check earlier if driving in dusty conditions.",
         KmInterval = 20000,
         TimeIntervalMonths = 24,
-        LastService = new DateTime(2024, 6, 1)
+        LastService = new DateTime(2002, 6, 1),
+                TripMeterWhenService = 12453
+
     },
     new ServiceItem
     {
@@ -37,7 +40,9 @@ public class CarServices : ICarService
         Description = "Fuel filter in engine bay.",
         KmInterval = 60000,
         TimeIntervalMonths = 12,
-        LastService = new DateTime(2024, 6, 1)
+        LastService = new DateTime(2024, 6, 1),
+        TripMeterWhenService = 10750
+
     },
     new ServiceItem
     {
@@ -46,7 +51,8 @@ public class CarServices : ICarService
         Description = "Fuel filter in tank – less frequent replacement.",
         KmInterval = 100000,
         TimeIntervalMonths = 18,
-        LastService = new DateTime(2024, 6, 1)
+        LastService = new DateTime(2025, 5, 1),
+        TripMeterWhenService = 14750
     },
     new ServiceItem
     {
@@ -55,7 +61,8 @@ public class CarServices : ICarService
         Description = "No official interval. Check condition after 60,000 km.",
         KmInterval = 60000,
         TimeIntervalMonths = 18,
-        LastService = new DateTime(2024, 6, 1)
+        LastService = new DateTime(2024, 6, 1),
+        TripMeterWhenService = 15750
     },
     new ServiceItem
     {
@@ -64,7 +71,8 @@ public class CarServices : ICarService
         Description = "Drive/alternator belt replacement.",
         KmInterval = 60000,
         TimeIntervalMonths = 12,
-        LastService = new DateTime(2024, 6, 1)
+        LastService = new DateTime(2025, 5, 1),
+        TripMeterWhenService = 15750
     },
     new ServiceItem
     {
@@ -73,7 +81,8 @@ public class CarServices : ICarService
         Description = "Coolant replacement. Capacity 6L.",
         KmInterval = 100000,
         TimeIntervalMonths = 72,
-        LastService = new DateTime(2024, 6, 1)
+        LastService = new DateTime(2024, 6, 1),
+        TripMeterWhenService = 15750
     }
 };
         cars.Add(car);
