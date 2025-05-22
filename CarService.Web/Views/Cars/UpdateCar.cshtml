@@ -1,0 +1,48 @@
+﻿@model UpdateCarVM
+@{
+    ViewBag.Title = "update car";
+}
+<h1>Update your vehicle</h1>
+<form asp-controller="Cars" asp-action="UpdateCar">
+    <input type="hidden" asp-for="CarId" />
+
+    <div class="mb-3">
+        <label class="form-label" asp-for="Brand"></label>
+        <input class="form-control" asp-for="Brand" />
+        <span class="text-danger" asp-validation-for="Brand"></span>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label" asp-for="Model"></label>
+        <input class="form-control" asp-for="Model" />
+        <span class="text-danger" asp-validation-for="Model"></span>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label" asp-for="Year"></label>
+        <input class="form-control" asp-for="Year" />
+        <span class="text-danger" asp-validation-for="Year"></span>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label" asp-for="EngineType"></label>
+        <input class="form-control" asp-for="EngineType" />
+        <span class="text-danger" asp-validation-for="EngineType"></span>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label" asp-for="TripMeter"></label>
+        <input class="form-control" asp-for="TripMeter" />
+        <span class="text-danger" asp-validation-for="TripMeter"></span>
+    </div>
+
+    <div class="d-grid mt-4">
+        <button class="btn btn-primary btn-lg" type="submit">Submit</button>
+    </div>
+</form>
+
+<a class="btn btn-warning mt-3" asp-controller="Cars"
+   asp-action="Details"
+   asp-route-id=@Model.CarId>
+    back to car details
+</a>

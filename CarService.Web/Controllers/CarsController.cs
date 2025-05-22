@@ -63,11 +63,38 @@ public class CarsController(CarServices service) : Controller
     }
 
     [ServiceFilter(typeof(LogFilter))]
-    [HttpPut("/update/car/{id}")]
+    [HttpGet("/update/car/{id}")]
     public IActionResult UpdateCar(int id)
     {
+        var model = service.GetCarById(id);
 
+        var viewModel = new UpdateCarVM
+        {
+            CarId = model.Id,
+            Brand = model.Brand,
+            Model = model.Model,
+            Year = model.Year,
+            EngineType = model.EngineType,
+            TripMeter = model.TripMeter,
+        };
+
+        return View(viewModel);
     }
+
+    [HttpPost("/update/car/{id}")]
+    [ServiceFilter(typeof(LogFilter))]
+    public IActionResult UpdateCar(int id, UpdateCarVM updateCarVM)
+    {
+        if (!ModelState.IsValid)
+        {
+            return View(updateCarVM);
+        }
+
+        service.UpdateCar(updateCarVM);
+
+        return RedirectToAction(nameof(Details), new { id });
+    }
+
 
     [ServiceFilter(typeof(LogFilter))]
     [HttpGet("additem/{id:int}")]
@@ -78,7 +105,6 @@ public class CarsController(CarServices service) : Controller
     }
 
     [ServiceFilter(typeof(LogFilter))]
-
     [HttpPost("additem/{id:int}")]
     public IActionResult AddItem(int id, AddItemVM itemVM)
     {

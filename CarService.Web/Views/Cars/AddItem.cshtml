@@ -4,29 +4,7 @@
 }
 
 <h1>Add a new service item to your car</h1>
-@* <form asp-controller="Cars" asp-action="AddItem">
-    <label asp-for="Name"></label>
-    <input asp-for="Name" />
-    <span asp-validation-for="Name"></span>
 
-    <label asp-for="Description"></label>
-    <input asp-for="Description" />
-    <span asp-validation-for="Description"></span>
-
-    <label asp-for="KmInterval"></label>
-    <input asp-for="KmInterval" />
-    <span asp-validation-for="KmInterval"></span>
-
-    <label asp-for="TimeIntervalMonths"></label>
-    <input asp-for="TimeIntervalMonths" />
-    <span asp-validation-for="TimeIntervalMonths"></span>
-
-    <label asp-for="LastService"></label>
-    <input asp-for="LastService" />
-    <span asp-validation-for="LastService"></span>
-
-    <button type="submit">Add service item</button>
-</form> *@
 <form asp-controller="Cars" asp-action="AddItem" class="needs-validation" novalidate>
     <div class="mb-3">
         <label asp-for="Name" class="form-label"></label>

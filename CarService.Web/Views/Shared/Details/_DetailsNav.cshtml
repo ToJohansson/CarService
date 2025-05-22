@@ -6,23 +6,28 @@
                 <li class="nav-item">
                     <a class="nav-link active" href='@Url.Action("Index", "Cars")'>Home</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" asp-controller="Cars"
-                       asp-action="AddItem"
-                       asp-route-id="@Model.Id">
-                        Add new service item
-                    </a>
-                </li>
 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Dropdown
+                        Options
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="/wrongway">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li>
+                            <a class="dropdown-item" asp-controller="Cars"
+                               asp-action="UpdateCar"
+                               asp-route-id="@Model.Id">
+                                Update Car
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" asp-controller="Cars"
+                               asp-action="AddItem"
+                               asp-route-id="@Model.Id">
+                                New service item
+                            </a>
+                        </li>
                         <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        <li><a class="dropdown-item" href="/about">About</a></li>
                     </ul>
                 </li>
             </ul>

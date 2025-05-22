@@ -1,5 +1,6 @@
 ﻿using CarService.Web.Models;
-
+using CarService.Web.Views.Cars;
+using System.Reflection;
 namespace CarService.Web.Services;
 
 public class CarServices : ICarService
@@ -104,9 +105,9 @@ public class CarServices : ICarService
         return true;
     }
 
-    public bool UpdateCarById(int id, Car car)
+    public bool UpdateCar(UpdateCarVM car)
     {
-        var carToUpdate = GetCarById(id);
+        var carToUpdate = GetCarById(car.CarId);
         if (carToUpdate == null)
             return false;
 
@@ -115,7 +116,6 @@ public class CarServices : ICarService
         carToUpdate.Year = car.Year;
         carToUpdate.TripMeter = car.TripMeter;
         carToUpdate.EngineType = car.EngineType;
-        carToUpdate.ServiceItems = car.ServiceItems;
 
         return true;
     }
