@@ -124,7 +124,56 @@ public class CarsController(CarServices service) : Controller
         if (!service.AddServiceItem(id, item))
             return View(itemVM); // returnera popup som säger om det var bu eller bä
 
-        return RedirectToAction(nameof(Details), new { id = id });
+        return RedirectToAction(nameof(Details), new { id });
+    }
+    [HttpGet("/cars/{carId}/serviceitem/edit/{itemId}")]
+    public IActionResult UpdateServiceItem(int carId, int itemId)
+    {
+        var car = service.GetCarById(carId);
+        if (car == null)
+            return NotFound();
+
+        var item = car.ServiceItems.FirstOrDefault(x => x.Id == itemId);
+        if (item == null)
+            return NotFound();
+
+        var vm = new UpdateServiceItemVM
+        {
+            CarId = carId,
+            Id = item.Id,
+            Name = item.Name,
+            Description = item.Description,
+            KmInterval = item.KmInterval,
+            TimeIntervalMonths = item.TimeIntervalMonths,
+            LastService = item.LastService,
+            TripMeterWhenService = item.TripMeterWhenService
+        };
+
+        return View(vm);
+    }
+
+    [HttpPost("/cars/{carId}/serviceitem/edit/{itemId}")]
+    public IActionResult UpdateServiceItem(UpdateServiceItemVM vm)
+    {
+        if (!ModelState.IsValid)
+            return View(vm);
+
+        var car = service.GetCarById(vm.CarId);
+        if (car == null)
+            return NotFound();
+
+        var item = car.ServiceItems.FirstOrDefault(x => x.Id == vm.Id);
+        if (item == null)
+            return NotFound();
+
+        item.Name = vm.Name;
+        item.Description = vm.Description;
+        item.KmInterval = vm.KmInterval;
+        item.TimeIntervalMonths = vm.TimeIntervalMonths;
+        item.LastService = vm.LastService;
+        item.TripMeterWhenService = vm.TripMeterWhenService;
+
+        return RedirectToAction("Details", new { id = vm.CarId });
     }
 
 }

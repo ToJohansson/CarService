@@ -166,6 +166,26 @@ public class CarServices : ICarService
         car.ServiceItems.Add(item);
         return true;
     }
+    public bool UpdateServiceItem(UpdateServiceItemVM vm)
+    {
+        var model = GetCarById(vm.CarId);
+        if (model == null)
+            return false;
+
+
+        var existing = model.ServiceItems.FirstOrDefault(x => x.Id == vm.Id);
+        if (existing != null)
+        {
+            existing.Name = vm.Name;
+            existing.Description = vm.Description;
+            existing.KmInterval = vm.KmInterval;
+            existing.TimeIntervalMonths = vm.TimeIntervalMonths;
+            existing.TripMeterWhenService = vm.TripMeterWhenService;
+            existing.LastService = vm.LastService;
+        }
+
+        return true;
+    }
 
 
     public bool RemoveServiceItem(int carId, int serviceItemId)
@@ -182,14 +202,5 @@ public class CarServices : ICarService
     }
 
 
-    public bool UpdateLastServiceDate(int carId, int serviceItemId, DateTime newDate)
-    {
-        var item = GetServiceItemById(carId, serviceItemId);
-        if (item == null)
-            return false;
-
-        item.LastService = newDate;
-        return true;
-    }
 }
 

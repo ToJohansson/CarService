@@ -36,6 +36,11 @@
                     <p><strong>Trip meter last service:</strong> @item.TripMeterWhenService km</p>
                     <p><strong>Change every:</strong> @item.KmInterval km or @item.TimeIntervalMonths months.</p>
                 </div>
+                <div>
+                    <a class="btn btn-primary" href="/cars/@Model.Id/serviceitem/edit/@item.Id">
+                        Update
+                    </a>
+                </div> 
             </div>
         </div>
 

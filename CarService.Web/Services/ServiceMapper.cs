@@ -40,6 +40,7 @@ public static class ServiceMapper
 
                 return new ServiceItemsVM
                 {
+                    Id = m.Id,
                     Name = m.Name,
                     Description = m.Description,
                     KmInterval = m.KmInterval,

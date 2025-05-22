@@ -2,7 +2,6 @@
 
 ## 🔧 Pågående
 -  UPDATE i service, controller, view/VM för 
-	- Car 
 	- ServiceItem
 -  Delete Car by ID
 -  Delete item by ID
@@ -22,7 +21,7 @@
 ## 🐞 Buggar att fixa
 -  tripmeter i add form för car: rubrik för label måste fixas. updatera VM?
 -  form för add new service item så ska rubriker fixas för kminterval, timeintervalmonths och last service
-
+-  när man updaterar service item så updateras inte färgen och om den är ok due eller overdue.
 
 
 # Controller fix
@@ -30,10 +29,5 @@
 
 
 # Details fix
-- I nav bar för header: 
-1. flytta "add new service item" länk till dropdown menyn
-2. lägg till en länk till en About i dropdown (behöver inte gå någonstans) /se till att det kastas 404 isf.
-3. "updatera bil" länk i dropdown menyn
-
 
 
