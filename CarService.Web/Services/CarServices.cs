@@ -104,23 +104,22 @@ public class CarServices : ICarService
         return true;
     }
 
-    public bool AddServiceItem(int carId, ServiceItem item)
+    public bool UpdateCarById(int id, Car car)
     {
-
-        int newId = 0;
-        var car = GetCarById(carId);
-        if (car == null)
+        var carToUpdate = GetCarById(id);
+        if (carToUpdate == null)
             return false;
 
-        if (car.ServiceItems.Count == 0)
-            newId = 1;
-        else
-            newId = car.ServiceItems.Max(s => s.Id) + 1;
+        carToUpdate.Brand = car.Brand;
+        carToUpdate.Model = car.Model;
+        carToUpdate.Year = car.Year;
+        carToUpdate.TripMeter = car.TripMeter;
+        carToUpdate.EngineType = car.EngineType;
+        carToUpdate.ServiceItems = car.ServiceItems;
 
-        item.Id = newId;
-        car.ServiceItems.Add(item);
         return true;
     }
+
 
     public bool DeleteCarById(int id)
     {
@@ -148,6 +147,26 @@ public class CarServices : ICarService
 
         return car.ServiceItems.SingleOrDefault(s => s.Id == serviceItemId);
     }
+
+    public bool AddServiceItem(int carId, ServiceItem item)
+    {
+
+        int newId = 0;
+        var car = GetCarById(carId);
+        if (car == null)
+            return false;
+
+        if (car.ServiceItems.Count == 0)
+            newId = 1;
+        else
+            newId = car.ServiceItems.Max(s => s.Id) + 1;
+
+        item.Id = newId;
+        item.TripMeterWhenService = car.TripMeter;
+        car.ServiceItems.Add(item);
+        return true;
+    }
+
 
     public bool RemoveServiceItem(int carId, int serviceItemId)
     {
