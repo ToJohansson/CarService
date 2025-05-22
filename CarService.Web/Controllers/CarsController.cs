@@ -3,11 +3,12 @@ using CarService.Web.Services;
 using CarService.Web.Models;
 using CarService.Web.Views.Cars;
 using static CarService.Web.Views.Cars.DetailsVM;
+using CarService.Web.Controllers.Loggers;
 
 namespace CarService.Web.Controllers;
 public class CarsController(CarServices service) : Controller
 {
-
+    [ServiceFilter(typeof(LogFilter))]
     [HttpGet("")]
     public IActionResult Index()
     {
@@ -24,11 +25,15 @@ public class CarsController(CarServices service) : Controller
         };
         return View(viewModel);
     }
+
+    [ServiceFilter(typeof(LogFilter))]
     [HttpGet("add")]
     public IActionResult Add()
     {
         return View();
     }
+
+    [ServiceFilter(typeof(LogFilter))]
     [HttpPost("add")]
     public IActionResult Add(AddVM carVM)
     {
@@ -48,64 +53,31 @@ public class CarsController(CarServices service) : Controller
 
         return RedirectToAction(nameof(Index));
     }
+
+    [ServiceFilter(typeof(LogFilter))]
     [HttpGet("details/{id:int}")]
     public IActionResult Details(int id)
     {
         var model = service.GetCarById(id);
-        var currentDate = DateTime.Now;
-        var currentTripMeter = model.TripMeter;
-
-        var viewModel = new DetailsVM
-        {
-            Id = model.Id,
-            Brand = model.Brand,
-            Model = model.Model,
-            Year = model.Year,
-            EngineType = model.EngineType,
-            TripMeter = model.TripMeter,
-            serviceItemsVM = model.ServiceItems
-            .Select(m =>
-            {
-                var kmPassed = currentTripMeter - m.TripMeterWhenService;
-                var monthsPassed = ((currentDate.Year - m.LastService.Year) * 12) + currentDate.Month - m.LastService.Month;
-
-                bool isKmOverdue = m.KmInterval.HasValue && kmPassed >= m.KmInterval.Value;
-                bool isTimeOverdue = m.TimeIntervalMonths.HasValue && monthsPassed >= m.TimeIntervalMonths.Value;
-
-                bool isKmDue = m.KmInterval.HasValue && kmPassed >= (m.KmInterval.Value - 500);
-                bool isTimeDue = m.TimeIntervalMonths.HasValue && monthsPassed >= (m.TimeIntervalMonths.Value - 1);
-
-                var status = ServiceStatusVM.Ok;
-
-                if (isKmOverdue || isTimeOverdue)
-                    status = ServiceStatusVM.Overdue;
-                else if (isKmDue || isTimeDue)
-                    status = ServiceStatusVM.Due;
-
-                return new ServiceItemsVM
-                {
-                    Name = m.Name,
-                    Description = m.Description,
-                    KmInterval = m.KmInterval,
-                    TimeIntervalMonths = m.TimeIntervalMonths,
-                    TripMeterWhenService = m.TripMeterWhenService,
-                    LastService = m.LastService,
-                    Status = status
-                };
-            })
-            .OrderByDescending(m => m.Status)
-            .ToArray()
-        };
-
-        return View(viewModel);
+        return View(ServiceMapper.CheckServiceItemStatuses(model));
     }
 
+    [ServiceFilter(typeof(LogFilter))]
+    [HttpPut("/update/car/{id}")]
+    public IActionResult UpdateCar(int id)
+    {
+
+    }
+
+    [ServiceFilter(typeof(LogFilter))]
     [HttpGet("additem/{id:int}")]
     public IActionResult AddItem(int id)
     {
         ViewBag.CarId = id;
         return View();
     }
+
+    [ServiceFilter(typeof(LogFilter))]
 
     [HttpPost("additem/{id:int}")]
     public IActionResult AddItem(int id, AddItemVM itemVM)

@@ -1,0 +1,43 @@
+﻿<div class="accordion" id="accordionExample">
+    @for (int i = 0; i < Model.serviceItemsVM.Length; i++)
+    {
+        var item = Model.serviceItemsVM[i];
+
+        var statusClass = item.Status switch
+        {
+            ServiceStatusVM.Ok => "bg-success bg-opacity-10",
+            ServiceStatusVM.Due => "bg-warning bg-opacity-10",
+            ServiceStatusVM.Overdue => "bg-danger bg-opacity-10",
+            _ => ""
+        };
+
+        var collapseId = $"collapse{i}";
+        var headingId = $"heading{i}";
+        var showClass = i == 0 ? "show" : "";
+        var collapsedClass = i == 0 ? "" : "collapsed";
+        var expanded = i == 0 ? "true" : "false";
+
+        <div class="accordion-item mb-2 border rounded">
+            <h2 class="accordion-header" id="@headingId">
+                <button class="accordion-button @collapsedClass @statusClass" type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#@collapseId"
+                        aria-expanded="@expanded"
+                        aria-controls="@collapseId">
+                    <strong>
+                        @item.Name (@item.Status)
+                    </strong>
+                </button>
+            </h2>
+            <div id="@collapseId" class="accordion-collapse collapse @showClass @collapsedClass @statusClass" aria-labelledby="@headingId" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <p><strong>Description:</strong> @item.Description</p>
+                    <p><strong>Last service:</strong> @item.LastService.ToShortDateString()</p>
+                    <p><strong>Trip meter last service:</strong> @item.TripMeterWhenService km</p>
+                    <p><strong>Change every:</strong> @item.KmInterval km or @item.TimeIntervalMonths months.</p>
+                </div>
+            </div>
+        </div>
+
+    }
+</div>
