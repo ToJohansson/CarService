@@ -12,16 +12,28 @@
             @foreach (var item in Model.Cars)
             {
                 <li>
-                    <p>
-                        <strong>
-                            @item.Brand @item.Model
-                            <a asp-controller="Cars"
+                    <div class="d-flex justify-content-between align-items-center border p-3">
+                        <div>
+                            <strong>@item.Brand @item.Model</strong>
+                     
+                            <a class="btn btn-primary m-2"
+                               asp-controller="Cars"
                                asp-action="Details"
-                               asp-route-id=@item.Id>
+                               asp-route-id="@item.Id">
                                 Details
                             </a>
-                        </strong>
-                    </p>
+                        </div>
+                        <div>
+                            <a class="btn btn-danger m-2"
+                               asp-controller="Cars"
+                               asp-action="DeleteCar"
+                               asp-route-id="@item.Id">
+                                Delete
+                            </a>
+                        </div>
+                    </div>
+
+
                 </li>
             }
         </ol>

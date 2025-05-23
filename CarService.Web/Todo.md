@@ -4,7 +4,6 @@
 -  UPDATE i service, controller, view/VM för 
 	- ServiceItem
 -  Delete Car by ID
--  Delete item by ID
 	
 
 ## 💡 Idéer / Förbättringar
