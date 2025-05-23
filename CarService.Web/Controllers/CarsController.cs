@@ -26,6 +26,15 @@ public class CarsController(CarServices service) : Controller
         return View(viewModel);
     }
 
+    [HttpGet("cars/delete/{carId}")]
+    public IActionResult DeleteCar(int carId)
+    {
+        if(!service.DeleteCarById(carId))
+            return RedirectToAction(nameof(Index)); // visa upp felmeddelande? 
+
+        return RedirectToAction(nameof(Index));
+    }
+
     [ServiceFilter(typeof(LogFilter))]
     [HttpGet("add")]
     public IActionResult Add()
@@ -180,7 +189,7 @@ public class CarsController(CarServices service) : Controller
     public IActionResult DeleteServiceItem(int carId, int itemId)
     {
         if (!service.RemoveServiceItem(carId, itemId))
-            return RedirectToAction("Details", new { id = carId });
+            return RedirectToAction("Details", new { id = carId }); // visa upp felmeddelande? 
 
         return RedirectToAction("Details", new { id = carId });
     }
