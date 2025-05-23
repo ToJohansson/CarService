@@ -63,34 +63,6 @@ public class CarsController(CarServices service) : Controller
     }
 
     [ServiceFilter(typeof(LogFilter))]
-    [HttpGet("add")]
-    public IActionResult Add()
-    {
-        return View();
-    }
-
-    [ServiceFilter(typeof(LogFilter))]
-    [HttpPost("add")]
-    public IActionResult Add(AddVM carVM)
-    {
-        if (!ModelState.IsValid)
-            return View(carVM);
-
-        var car = new Car
-        {
-            Brand = carVM.Brand,
-            Model = carVM.Model,
-            Year = carVM.Year,
-            EngineType = carVM.EngineType,
-        };
-
-        if (!service.AddCar(car))
-            return View(carVM); // returnera popup som säger om det var bu eller bä
-
-        return RedirectToAction(nameof(Index));
-    }
-
-    [ServiceFilter(typeof(LogFilter))]
     [HttpGet("details/{id:int}")]
     public IActionResult Details(int id)
     {
