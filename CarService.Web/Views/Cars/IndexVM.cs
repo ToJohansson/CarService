@@ -33,6 +33,7 @@ public class IndexVM
 
 
         [Range(0, int.MaxValue)]
+        [Display(Name = "Trip")]
         public int TripMeter { get; set; }
     }
 }

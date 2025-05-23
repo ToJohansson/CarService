@@ -14,8 +14,6 @@
 
 
 ## 🐞 Buggar att fixa
--  tripmeter i add form för car: rubrik för label måste fixas. updatera VM?
--  form för add new service item så ska rubriker fixas för kminterval, timeintervalmonths och last service
 
 
 # Controller fix

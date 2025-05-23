@@ -3,7 +3,10 @@
 @{
     ViewBag.Title = "update car";
 }
-<h1>Update your vehicle</h1>
+<header>
+    <h1>Update your vehicle</h1>
+</header>
+
 <form asp-controller="Cars" asp-action="UpdateCar">
     <input type="hidden" asp-for="CarId" />
 
@@ -38,7 +41,7 @@
     </div>
 
     <div class="d-grid mt-4">
-        <button class="btn btn-primary btn-lg" type="submit">Submit</button>
+        <button class="btn btn-success btn-lg" type="submit">Submit</button>
     </div>
 </form>
 
