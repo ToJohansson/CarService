@@ -4,6 +4,7 @@ using CarService.Web.Models;
 using CarService.Web.Views.Cars;
 using static CarService.Web.Views.Cars.DetailsVM;
 using CarService.Web.Controllers.Loggers;
+using static CarService.Web.Views.Cars.IndexVM;
 
 namespace CarService.Web.Controllers;
 public class CarsController(CarServices service) : Controller
@@ -26,10 +27,36 @@ public class CarsController(CarServices service) : Controller
         return View(viewModel);
     }
 
+    [HttpPost("")]
+    public IActionResult CreateCar(IndexVM vm)
+    {
+        if (!ModelState.IsValid)
+        {
+            return View("Index", vm);
+        }
+
+        var car = new Car
+        {
+            Brand = vm.AddCarVm.Brand,
+            Model = vm.AddCarVm.Model,
+            Year = vm.AddCarVm.Year,
+            EngineType = vm.AddCarVm.EngineType,
+            TripMeter = vm.AddCarVm.TripMeter
+        };
+
+        if (!service.AddCar(car))
+        {
+            return View("Index", vm);
+        }
+
+        return RedirectToAction(nameof(Index));
+    }
+
+
     [HttpGet("cars/delete/{carId}")]
     public IActionResult DeleteCar(int carId)
     {
-        if(!service.DeleteCarById(carId))
+        if (!service.DeleteCarById(carId))
             return RedirectToAction(nameof(Index)); // visa upp felmeddelande? 
 
         return RedirectToAction(nameof(Index));

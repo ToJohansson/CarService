@@ -34,7 +34,80 @@
             }
         </ol>
     </section>
-    <section>
+    @*     <section>
         <a class="btn btn-success" href='@Url.Action("Add", "Cars")'>Add car</a>
-    </section>
+    </section> *@
 
+    <div class="accordion accordion-flush" id="accordionExample">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    
+                    <strong>
+                        Add a Vehicle
+                    </strong>
+                </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse " aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+
+                    <form asp-controller="Cars" asp-action="CreateCar">
+                        <input type="hidden" asp-for="@Model.Cars" />
+
+                        <div class="mb-3">
+                            <label class="form-label" asp-for="AddCarVm.Brand"></label>
+                            <input class="form-control" asp-for="AddCarVm.Brand" />
+                            <span class="text-danger" asp-validation-for="AddCarVm.Brand"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label" asp-for="AddCarVm.Model"></label>
+                            <input class="form-control" asp-for="AddCarVm.Model" />
+                            <span class="text-danger" asp-validation-for="AddCarVm.Model"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label" asp-for="AddCarVm.Year"></label>
+                            <input class="form-control" asp-for="AddCarVm.Year" />
+                            <span class="text-danger" asp-validation-for="AddCarVm.Year"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label" asp-for="AddCarVm.EngineType"></label>
+                            <input class="form-control" asp-for="AddCarVm.EngineType" />
+                            <span class="text-danger" asp-validation-for="AddCarVm.EngineType"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label" asp-for="AddCarVm.TripMeter"></label>
+                            <input class="form-control" asp-for="AddCarVm.TripMeter" />
+                            <span class="text-danger" asp-validation-for="AddCarVm.TripMeter"></span>
+                        </div>
+
+                        <div class="d-grid mt-4">
+                            <button class="btn btn-primary btn-lg" type="submit">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+@section scripts
+    {
+@* NOTE: Invalid ajax.aspnetcdn.com URLs to test the fallback *@
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.7.1.min.j"
+            asp-fallback-src="/scripts/jquery/jquery.min.js"
+            asp-fallback-test="window.jQuery">
+    </script>
+
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.19.2/jquery.validate.min.j"
+            asp-fallback-src="/scripts/jquery-validate/jquery.validate.min.js"
+            asp-fallback-test="window.jQuery && window.jQuery.validator">
+    </script>
+
+    <script src="https://ajax.aspnetcdn.com/ajax/mvc/5.2.3/jquery.validate.unobtrusive.min.j"
+            asp-fallback-src="/scripts/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"
+            asp-fallback-test="window.jQuery && window.jQuery.validator && window.jQuery.validator.unobtrusive">
+    </script>
+}
