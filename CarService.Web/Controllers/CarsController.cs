@@ -176,4 +176,13 @@ public class CarsController(CarServices service) : Controller
         return RedirectToAction("Details", new { id = vm.CarId });
     }
 
+    [HttpGet("/cars/{carId}/serviceitem/delete/{itemId}")]
+    public IActionResult DeleteServiceItem(int carId, int itemId)
+    {
+        if (!service.RemoveServiceItem(carId, itemId))
+            return RedirectToAction("Details", new { id = carId });
+
+        return RedirectToAction("Details", new { id = carId });
+    }
+
 }

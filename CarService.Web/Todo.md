@@ -15,7 +15,7 @@
 -  Enhetstester 
 -  Implementera autentisering (login/logout)
 -  för lastservice i serviceItem form, knapp för dagens datum? 
-
+-  Flytta businesslogic från controller till mapper
 
 
 ## 🐞 Buggar att fixa
