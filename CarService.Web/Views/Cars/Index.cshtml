@@ -1,17 +1,35 @@
-﻿@model Car[]
+﻿@model IndexVM
 @{
     ViewBag.Title = "Home";
 }
 
 <header>
-    @* <h1>My Cars</h1> *@
-    <partial name="_HeaderH1Title" model="@("My Cars!")" />
+    <h1>Vehicles</h1>
 </header>
 <main>
-    <section>
-        <partial name="_CarsList" />
-    </section>
-    <section>
-        <a href='@Url.Action("Add", "Cars")'>Add car</a>
-    </section>
+    <div>
+        <partial name="Index/_IndexCarList" />
+    </div>
+    <div>
+        <partial name="Index/_AddCarAccordion" />
+    </div>
 
+</main>
+@section scripts
+{
+@* NOTE: Invalid ajax.aspnetcdn.com URLs to test the fallback *@
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.7.1.min.j"
+            asp-fallback-src="/scripts/jquery/jquery.min.js"
+            asp-fallback-test="window.jQuery">
+    </script>
+
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.19.2/jquery.validate.min.j"
+            asp-fallback-src="/scripts/jquery-validate/jquery.validate.min.js"
+            asp-fallback-test="window.jQuery && window.jQuery.validator">
+    </script>
+
+    <script src="https://ajax.aspnetcdn.com/ajax/mvc/5.2.3/jquery.validate.unobtrusive.min.j"
+            asp-fallback-src="/scripts/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"
+            asp-fallback-test="window.jQuery && window.jQuery.validator && window.jQuery.validator.unobtrusive">
+    </script>
+}

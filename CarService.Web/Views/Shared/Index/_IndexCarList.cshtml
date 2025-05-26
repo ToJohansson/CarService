@@ -1,0 +1,26 @@
+﻿
+<ol>
+    @foreach (var item in Model.Cars)
+    {
+        <li>
+            <div class="d-flex justify-content-between align-items-center border p-3">
+                <div>
+                    <strong>@item.Brand @item.Model</strong>
+
+                    <a class="btn btn-primary m-2"
+                       asp-controller="Cars"
+                       asp-action="Details"
+                       asp-route-id="@item.Id">
+                        Details
+                    </a>
+                </div>
+                <div>
+                    <a class="btn btn-danger m-2"
+                       href="/cars/delete/@item.Id">
+                        Delete
+                    </a>
+                </div>
+            </div>
+        </li>
+    }
+</ol>

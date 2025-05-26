@@ -1,40 +1,20 @@
-﻿@model Car
+﻿@model DetailsVM
 @{
     ViewBag.Title = "Details";
 }
 
+<partial name="Details/_StatusVMCss"/>
+
 <header>
     <h1>Details</h1>
-    <section>
-        <a href='@Url.Action("Index", "Cars")'>Home</a>
-    </section>
-    <a asp-controller="Cars"
-       asp-action="AddItem"
-       asp-route-id=@Model.Id>
-        Add new service item
-    </a>
+    <partial name="Details/_DetailsNav" />
 </header>
+
 <main>
+    <partial name="Details/_DetailsCar" />
     <section>
-        <h2>Car information</h2>
-
-        <ul>
-            <li>
-                <p>@Model.Brand</p>
-                <p>@Model.Model</p>
-                <p>@Model.Year</p>
-                <p>@Model.EngineType</p>
-            </li>
-        </ul>
+        <h2 class="h5 mb-3">Service interval information</h2>
+        <partial name="Details/_DetailsServiceItemsAccordion"></partial>
     </section>
-
-    <section>
-
-        <h2>Service interval information</h2>
-
-        <partial name="_ServiceItemsList" />
-
-    </section>
-
 </main>
 

@@ -1,33 +1,46 @@
-﻿@model ServiceItem
+﻿@model AddItemVM
 @{
     ViewBag.Title = "Add new item";
 }
+<header>
+    <h1>Add a new service item to your car</h1>
+</header>
 
-<h1>Add a new service item to your car</h1>
-<form asp-controller="Cars" asp-action="AddItem">
-    <label asp-for="Name"></label>
-    <input asp-for="Name" />
-    <span asp-validation-for="Name"></span>
+<form asp-controller="Cars" asp-action="AddItem" class="needs-validation" novalidate>
+    <div class="mb-3">
+        <label asp-for="Name" class="form-label"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
 
-    <label asp-for="Description"></label>
-    <input asp-for="Description" />
-    <span asp-validation-for="Description"></span>
+    <div class="mb-3">
+        <label asp-for="Description" class="form-label"></label>
+        <input asp-for="Description" class="form-control" />
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
 
-    <label asp-for="KmInterval"></label>
-    <input asp-for="KmInterval" />
-    <span asp-validation-for="KmInterval"></span>
+    <div class="mb-3">
+        <label asp-for="KmInterval" class="form-label"></label>
+        <input asp-for="KmInterval" type="number" class="form-control" />
+        <span asp-validation-for="KmInterval" class="text-danger"></span>
+    </div>
 
-    <label asp-for="TimeIntervalYears"></label>
-    <input asp-for="TimeIntervalYears" />
-    <span asp-validation-for="TimeIntervalYears"></span>
+    <div class="mb-3">
+        <label asp-for="TimeIntervalMonths" class="form-label"></label>
+        <input asp-for="TimeIntervalMonths" type="number" class="form-control" />
+        <span asp-validation-for="TimeIntervalMonths" class="text-danger"></span>
+    </div>
 
-    <label asp-for="LastService"></label>
-    <input asp-for="LastService" />
-    <span asp-validation-for="LastService"></span>
+    <div class="mb-3">
+        <label asp-for="LastService" class="form-label"></label>
+        <input asp-for="LastService" type="date" class="form-control" />
+        <span asp-validation-for="LastService" class="text-danger"></span>
+    </div>
 
-    <button type="submit">Add service item</button>
+    <button type="submit" class="btn btn-success">Add service item</button>
 </form>
-<a asp-controller="Cars"
+
+<a class="btn btn-warning mt-3" asp-controller="Cars"
    asp-action="Details"
    asp-route-id=@ViewBag.CarId>
     back to car details
@@ -35,6 +48,19 @@
 
 @section scripts
 {
-    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.19.2/jquery.validate.min.js"></script>
-    <script src="https://ajax.aspnetcdn.com/ajax/mvc/5.2.3/jquery.validate.unobtrusive.min.js"></script>
+@* NOTE: Invalid ajax.aspnetcdn.com URLs to test the fallback *@
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.7.1.min.j"
+            asp-fallback-src="/scripts/jquery/jquery.min.js"
+            asp-fallback-test="window.jQuery">
+    </script>
+
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.19.2/jquery.validate.min.j"
+            asp-fallback-src="/scripts/jquery-validate/jquery.validate.min.js"
+            asp-fallback-test="window.jQuery && window.jQuery.validator">
+    </script>
+
+    <script src="https://ajax.aspnetcdn.com/ajax/mvc/5.2.3/jquery.validate.unobtrusive.min.j"
+            asp-fallback-src="/scripts/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"
+            asp-fallback-test="window.jQuery && window.jQuery.validator && window.jQuery.validator.unobtrusive">
+    </script>
 }

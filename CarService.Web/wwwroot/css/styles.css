@@ -1,0 +1,130 @@
+﻿
+/* Global */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #808080;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    display: flex;
+    justify-content: center; /* centrera horisontellt */
+    align-items: flex-start; /* starta från toppen (inte mitt i höjden) */
+    min-height: 100vh; /* gör så body fyller hela höjden */
+    padding: 40px 20px; /* marginal runt hela */
+    box-sizing: border-box;
+}
+
+
+.paper-container {
+    background-color: white;
+    width: 100%;
+    max-width: 900px; /* maxbredd men kan krympa */
+    min-height: 80vh; /* så det känns som en sida */
+    padding: 40px 50px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+/* Header */
+header {
+    background-color: #0078d7;
+    color: white;
+    padding: 20px 15px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+    header h1 {
+        margin: 0;
+        font-weight: 600;
+    }
+
+    /* Navigation-länkar i header */
+    header section a {
+        color: white;
+        text-decoration: none;
+        margin-right: 15px;
+        font-weight: 500;
+    }
+
+        header section a:hover {
+            text-decoration: underline;
+        }
+
+/* Navigationslänkar i header */
+.header-nav {
+    margin-top: 10px;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+    .header-nav a {
+        color: white;
+        text-decoration: none;
+        margin-right: 15px;
+        font-weight: 500;
+    }
+
+        .header-nav a:hover {
+            background-color: #004578;
+            text-decoration: none;
+        }
+
+.nav-link {
+    color: white !important; /* tvingar färgen, Bootstrap använder egna färger */
+    text-decoration: none;
+    margin-right: 15px;
+    font-weight: 500;
+}
+
+    .nav-link:hover {
+        background-color: #004578;
+        text-decoration: none;
+        color: white !important; /* se till att texten förblir vit på hover */
+    }
+
+/* Main och sektioner */
+main {
+    background-color: white;
+    padding: 20px 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+section {
+    margin-bottom: 25px;
+}
+
+    section h2 {
+        border-bottom: 2px solid #0078d7;
+        padding-bottom: 5px;
+        margin-bottom: 15px;
+        color: #0078d7;
+    }
+
+/* Listor */
+ul, ol {
+    padding-left: 20px;
+}
+
+li {
+    margin-bottom: 15px;
+}
+
+/* Styling på länkar */
+a {
+    color: black;
+}
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+/* Lite mjuka övergångar för hover-effekter */
+a, li {
+    transition: color 0.3s ease;
+}

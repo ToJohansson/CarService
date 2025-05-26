@@ -1,0 +1,57 @@
+﻿@model UpdateServiceItemVM
+@{
+    ViewData["Title"] = "Update Service Items";
+}
+
+
+<div class="container mt-5">
+    <header>
+        <h1 class="mb-4 text-primary">Uppdatera servicepunkt</h1>
+    </header>
+    <h5 class="mb-4 text-muted">För bil med ID: @Model.CarId</h5>
+
+    <div class="card shadow">
+        <div class="card-body">
+            <form asp-action="EditServiceItem" method="post">
+                <input type="hidden" asp-for="CarId" />
+                <input type="hidden" asp-for="Id" />
+
+                <div class="mb-3">
+                    <label asp-for="Name" class="form-label fw-semibold"></label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger small"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Description" class="form-label fw-semibold"></label>
+                    <input asp-for="Description" class="form-control" />
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="KmInterval" class="form-label fw-semibold"></label>
+                    <input asp-for="KmInterval" class="form-control" />
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="TimeIntervalMonths" class="form-label fw-semibold"></label>
+                    <input asp-for="TimeIntervalMonths" class="form-control" />
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="LastService" class="form-label fw-semibold"></label>
+                    <input asp-for="LastService" class="form-control" type="date" />
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="TripMeterWhenService" class="form-label fw-semibold"></label>
+                    <input asp-for="TripMeterWhenService" class="form-control" />
+                </div>
+
+                <div class="d-flex justify-content-between mt-4">
+                    <button type="submit" class="btn btn-success px-4">Spara</button>
+                    <a asp-action="Details" asp-route-id="@Model.CarId" class="btn btn-secondary px-4">Tillbaka</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
